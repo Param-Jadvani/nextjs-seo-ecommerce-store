@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = 'https://your-website-url.com';
+const DEFAULT_SITE_URL = 'https://nextjs-seo-ecommerce-store.vercel.app';
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??

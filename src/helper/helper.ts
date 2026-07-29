@@ -1,5 +1,6 @@
 import { getUserFromCookie } from '@/actions/auth/auth';
 import { getUserCart } from '@/actions/cart/cart';
+import { getProductById } from '@/lib/catalog';
 import { CartItem } from '@/types/cart';
 import { ProductType } from '@/types/product';
 import { UserType } from '@/types/user';
@@ -12,17 +13,11 @@ export async function fetchProduct(productId: string): Promise<ProductType | und
       return productCache.get(productId);
     }
 
-    const res = await fetch(`https://fakestoreapi.com/products/${productId}`, {
-      next: {
-        revalidate: 3600,
-      },
-    });
+    const product = getProductById(productId);
 
-    if (!res.ok) {
+    if (!product) {
       return undefined;
     }
-
-    const product = (await res.json()) as ProductType;
 
     productCache.set(productId, product);
 

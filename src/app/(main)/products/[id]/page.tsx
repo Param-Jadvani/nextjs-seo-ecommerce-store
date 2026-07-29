@@ -11,26 +11,18 @@ import { SITE_NAME, SITE_URL_OBJECT } from '@/utils/seo';
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
 import { ChevronRight, Home, ShoppingBag } from 'lucide-react';
+import { getProductById } from '@/lib/catalog';
 
 const fetchProduct = async (id: string): Promise<ProductType> => {
   if (isNaN(Number(id))) {
     throw new Error('Invalid product ID format.');
   }
-  const res = await fetch(`https://fakestoreapi.com/products/${id}`, {
-    cache: 'force-cache',
-  });
-  if (!res.ok) {
-    if (res.status === 404) {
-      throw new Error(`Product with ID ${id} not found.`);
-    }
-    console.error(`Failed to fetch product ${id}: ${res.status} ${res.statusText}`);
-    throw new Error(`Failed to fetch product (status: ${res.status})`);
+
+  const product = getProductById(id);
+  if (!product) {
+    throw new Error(`Product with ID ${id} not found.`);
   }
-  const product = await res.json();
-  if (!product || typeof product !== 'object' || !product.id || !product.title) {
-    console.error('Invalid product data received:', product);
-    throw new Error('Received invalid product data format.');
-  }
+
   return product as ProductType;
 };
 

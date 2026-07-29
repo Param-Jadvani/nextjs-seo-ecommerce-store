@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Script from 'next/script';
 import ProductCard from '@/components/product/ProductCard';
 import { Badge } from '@/components/ui/badge';
 import { openGraph } from '@/utils/openGraphMeta';
@@ -88,9 +89,39 @@ export default async function CategoryPage({
 
   const filteredProducts = products.filter((product) => product.category === matchedCategory);
   const formattedCategory = matchedCategory.charAt(0).toUpperCase() + matchedCategory.slice(1);
+  const canonical = categoryPath(matchedCategory);
+  const breadcrumbData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: new URL('/', SITE_URL_OBJECT).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Products',
+        item: new URL('/products', SITE_URL_OBJECT).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: formattedCategory,
+        item: new URL(canonical, SITE_URL_OBJECT).toString(),
+      },
+    ],
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <Script
+        id={`category-breadcrumb-structured-data-${slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+      />
       <div className="mb-8 rounded-[2rem] border border-border/60 bg-gradient-to-br from-white via-slate-50 to-blue-50/70 p-6 shadow-lg md:p-8">
         <div className="mb-5 space-y-3">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">

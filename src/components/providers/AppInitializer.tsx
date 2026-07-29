@@ -5,28 +5,37 @@ import { useEffect } from 'react';
 import userStore from '@/store/userStore';
 import userCartStore from '@/store/userCartStore';
 import userOrderStore from '@/store/userOrderStore';
+import { bootstrapAppState } from '@/actions/app/bootstrap';
 
-import { CartItem } from '@/types/cart';
-import { OrderItem } from '@/types/order';
-import { UserType } from '@/types/user';
-
-interface AppInitializerProps {
-  user: UserType | null;
-  cart: CartItem[];
-  orders: OrderItem[];
-}
-
-export default function AppInitializer({ user, cart, orders }: AppInitializerProps) {
+export default function AppInitializer() {
   useEffect(() => {
-    const userState = userStore.getState();
-    const cartState = userCartStore.getState();
-    const orderState = userOrderStore.getState();
+    let isMounted = true;
 
-    if (user) userState.setUser(user);
-    else userState.logout();
+    const hydrateStores = async () => {
+      try {
+        const { user, cart, orders } = await bootstrapAppState();
 
-    cartState.setCart(cart);
-    orderState.setOrders(orders);
-  }, [user, cart, orders]);
+        if (!isMounted) return;
+
+        const userState = userStore.getState();
+        const cartState = userCartStore.getState();
+        const orderState = userOrderStore.getState();
+
+        if (user) userState.setUser(user);
+        else userState.logout();
+
+        cartState.setCart(cart);
+        orderState.setOrders(orders);
+      } catch (error) {
+        console.error('Failed to hydrate app state:', error);
+      }
+    };
+
+    hydrateStores();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
   return null;
 }

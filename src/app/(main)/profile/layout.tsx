@@ -5,7 +5,7 @@ import { SITE_NAME, SITE_URL_OBJECT } from '@/utils/seo';
 
 export const metadata: Metadata = {
   title: `Your Profile - ${SITE_NAME}`,
-  description: 'View and manage your NextJs SEO E-Commerce Shop account details.',
+  description: 'View and manage your NextJs SEO E-Commerce Store account details.',
   alternates: {
     canonical: '/profile',
     languages: {
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     ...openGraph,
     title: `Your Profile - ${SITE_NAME}`,
     url: '/profile',
-    description: 'View and manage your NextJs SEO E-Commerce Shop account details.',
+    description: 'View and manage your NextJs SEO E-Commerce Store account details.',
   },
   twitter: {
     ...twitter,
     title: `Your Profile - ${SITE_NAME}`,
-    description: 'View and manage your NextJs SEO E-Commerce Shop account details.',
+    description: 'View and manage your NextJs SEO E-Commerce Store account details.',
   },
 };
 

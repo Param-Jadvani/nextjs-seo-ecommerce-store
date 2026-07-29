@@ -1,4 +1,4 @@
-# NextJs SEO E-Commerce Shop
+# NextJs SEO E-Commerce Store
 
 A Next.js 15 e-commerce project with product browsing, category landing pages, cart, checkout, user auth, orders, and production-oriented SEO.
 
@@ -54,10 +54,10 @@ Copy `.env.example` to `.env.local` and fill in the values.
 Required variables:
 
 - `NEXT_PUBLIC_SITE_URL`
+- `DATABASE_URL` or `DATABASE_URL_DIRECT`
 - `RAZORPAY_KEY_ID`
 - `RAZORPAY_KEY_SECRET`
 - `NEXT_PUBLIC_RAZORPAY_KEY_ID`
-- `DATABASE_URL`
 - `AUTH_TOKEN`
 - `JWT_SECRET`
 - `NODE_ENV`

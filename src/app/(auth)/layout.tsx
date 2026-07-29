@@ -7,7 +7,7 @@ import { SITE_NAME } from '@/utils/seo';
 
 export const metadata: Metadata = {
   title: `Account Access - ${SITE_NAME}`,
-  description: 'Access or create your NextJs SEO E-Commerce Shop account.',
+  description: 'Access or create your NextJs SEO E-Commerce Store account.',
   robots: {
     index: false,
     follow: false,
@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     ...openGraph,
     title: `Account Access - ${SITE_NAME}`,
-    description: 'Log in or sign up for your NextJs SEO E-Commerce Shop account.',
+    description: 'Log in or sign up for your NextJs SEO E-Commerce Store account.',
     url: '/login',
   },
   twitter: {
     ...twitter,
     title: `Account Access - ${SITE_NAME}`,
-    description: 'Log in or sign up for your NextJs SEO E-Commerce Shop account.',
+    description: 'Log in or sign up for your NextJs SEO E-Commerce Store account.',
   },
 };
 

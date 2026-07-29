@@ -55,7 +55,7 @@ export default async function Home() {
               </span>
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
-                  Welcome{userData?.username ? `, ${userData.username}` : ''} to NextJs SEO E-Commerce Shop
+                  Welcome{userData?.username ? `, ${userData.username}` : ''} to NextJs SEO E-Commerce Store
                 </h1>
                 <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
                   Discover curated products, fast checkout, and a clean shopping experience built
@@ -65,7 +65,7 @@ export default async function Home() {
 
               <div className="flex flex-wrap gap-3">
                 <Button asChild size="lg" className="rounded-full bg-foreground text-background">
-                  <Link href="/products">Shop Now</Link>
+                  <Link href="/products">Explore Catalog</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full">
                   <Link href="/categories/electronics">Browse Categories</Link>
@@ -95,7 +95,7 @@ export default async function Home() {
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50">
                   <ShoppingBag size={32} className="text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold">Shop Products</h3>
+                <h3 className="text-xl font-semibold">Browse Catalog</h3>
                 <p className="text-muted-foreground">Browse our full catalog of quality products.</p>
                 <Button asChild className="mt-2 w-full rounded-full bg-foreground text-background">
                   <Link href="/products">Browse Products</Link>
@@ -155,7 +155,7 @@ export default async function Home() {
                   <p className="text-lg font-medium text-foreground group-hover:text-blue-600 md:text-xl">
                     {category.name}
                   </p>
-                  <p className="mt-2 text-sm text-muted-foreground">Shop collection</p>
+                  <p className="mt-2 text-sm text-muted-foreground">View collection</p>
                 </div>
               </div>
             </Link>
@@ -170,7 +170,7 @@ export default async function Home() {
             Start browsing our collection and find exactly what you need.
           </p>
           <Button asChild size="lg" className="rounded-full bg-white text-foreground hover:bg-white/90">
-            <Link href="/products">Shop Now</Link>
+            <Link href="/products">Explore Catalog</Link>
           </Button>
         </div>
       </section>

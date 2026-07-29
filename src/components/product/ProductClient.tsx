@@ -36,7 +36,7 @@ export default function ProductsClient({
               Curated catalog
             </div>
             <div className="space-y-3">
-              <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Shop Products</h1>
+              <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Browse Catalog</h1>
               <p className="max-w-xl text-muted-foreground">
                 Browse the latest picks, top-rated essentials, and category collections designed
                 for a cleaner shopping flow.

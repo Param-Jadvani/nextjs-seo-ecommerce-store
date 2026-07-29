@@ -5,18 +5,18 @@ import { SITE_NAME } from "@/utils/seo";
 
 export const metadata: Metadata = {
     title: `Login - ${SITE_NAME}`,
-    description: "Log in to your NextJs SEO E-Commerce Shop account to access your profile, orders, and cart.",
+    description: "Log in to your NextJs SEO E-Commerce Store account to access your profile, orders, and cart.",
     alternates: {
         canonical: "/login",
     },
     openGraph: {
         title: `Login - ${SITE_NAME}`,
-        description: "Access your NextJs SEO E-Commerce Shop account.",
+        description: "Access your NextJs SEO E-Commerce Store account.",
         url: "/login",
     },
     twitter: {
         title: `Login - ${SITE_NAME}`,
-        description: "Log in to your NextJs SEO E-Commerce Shop account.",
+        description: "Log in to your NextJs SEO E-Commerce Store account.",
     },
 };
 

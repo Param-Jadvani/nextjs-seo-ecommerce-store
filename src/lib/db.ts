@@ -3,10 +3,10 @@
 import dns from 'node:dns';
 import mongoose from 'mongoose';
 
-const MONGODB_URL = process.env.DATABASE_URL;
+const MONGODB_URL = process.env.DATABASE_URL ?? process.env.DATABASE_URL_DIRECT;
 
 if (!MONGODB_URL) {
-  throw new Error('Please define DATABASE_URL_DIRECT or DATABASE_URL for MongoDB connection.');
+  throw new Error('Please define DATABASE_URL or DATABASE_URL_DIRECT for MongoDB connection.');
 }
 
 let cachedPromise: Promise<typeof mongoose> | null = null;
@@ -32,7 +32,7 @@ const DBConnect = async () => {
 
     if (typeof MONGODB_URL === 'string' && MONGODB_URL.startsWith('mongodb+srv://')) {
       throw new Error(
-        "MongoDB SRV lookup failed. Use Atlas's standard mongodb:// connection string in DATABASE_URL_DIRECT, or fix outbound DNS for SRV records.",
+        "MongoDB SRV lookup failed. Use Atlas's standard mongodb:// connection string in DATABASE_URL, or fix outbound DNS for SRV records.",
       );
     }
 

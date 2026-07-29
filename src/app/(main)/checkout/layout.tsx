@@ -1,23 +1,22 @@
 import { openGraph } from "@/utils/openGraphMeta";
 import { Metadata } from "next";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { SITE_URL_OBJECT } from "@/utils/seo";
 
 export const metadata: Metadata = {
     title: "Checkout",
-    description: "Complete your purchase securely at NextJs SEO E-Commerce Shop.",
+    description: "Complete your purchase securely at NextJs SEO E-Commerce Store.",
     alternates: {
         canonical: "/checkout",
         languages: {
-            "en-US": new URL("/checkout", SITE_URL).toString(),
+            "en-US": new URL("/checkout", SITE_URL_OBJECT).toString(),
         },
     },
     robots: { index: false, follow: false },
     openGraph: {
         ...openGraph,
-        title: "Checkout - NextJs SEO E-Commerce Shop",
+        title: "Checkout - NextJs SEO E-Commerce Store",
         url: "/checkout",
-        description: "Complete your purchase securely at NextJs SEO E-Commerce Shop.",
+        description: "Complete your purchase securely at NextJs SEO E-Commerce Store.",
     },
 };
 

@@ -68,7 +68,7 @@ export default function Navbar() {
               href="/"
               className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-foreground px-4 py-2 text-sm font-semibold text-background shadow-sm"
             >
-              NextJs SEO E-Commerce Shop
+              NextJs SEO E-Commerce Store
             </Link>
           </div>
 

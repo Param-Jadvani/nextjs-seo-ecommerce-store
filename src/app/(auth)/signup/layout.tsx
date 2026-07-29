@@ -6,18 +6,18 @@ import { SITE_NAME } from "@/utils/seo";
 export const metadata: Metadata = {
     title: `Sign Up - ${SITE_NAME}`,
     description:
-        "Create a new NextJs SEO E-Commerce Shop account to start shopping and enjoy exclusive benefits.",
+        "Create a new NextJs SEO E-Commerce Store account to start shopping and enjoy exclusive benefits.",
     alternates: {
         canonical: "/signup",
     },
     openGraph: {
         title: `Sign Up - ${SITE_NAME}`,
-        description: "Join NextJs SEO E-Commerce Shop and start your shopping journey.",
+        description: "Join NextJs SEO E-Commerce Store and start your shopping journey.",
         url: "/signup",
     },
     twitter: {
         title: `Sign Up - ${SITE_NAME}`,
-        description: "Create a new NextJs SEO E-Commerce Shop account.",
+        description: "Create a new NextJs SEO E-Commerce Store account.",
     },
 };
 

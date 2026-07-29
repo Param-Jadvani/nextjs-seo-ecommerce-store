@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
-import { ProductType } from '@/types/product';
 import { SITE_URL_OBJECT } from '@/utils/seo';
 import { categoryPath } from '@/lib/catalog';
+import { loadProductCatalog } from '@/lib/catalog';
 
 const STATIC_PAGES: MetadataRoute.Sitemap = [
   {
@@ -18,21 +18,9 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   },
 ];
 
-async function fetchCatalog() {
-  const res = await fetch('https://fakestoreapi.com/products', {
-    next: { revalidate: 3600 },
-  });
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch product catalog for sitemap (status: ${res.status})`);
-  }
-
-  return (await res.json()) as ProductType[];
-}
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
-    const products = await fetchCatalog();
+    const products = await loadProductCatalog();
     const categories = [...new Set(products.map((product) => product.category))];
 
     const categoryPages: MetadataRoute.Sitemap = categories.map((category) => ({
